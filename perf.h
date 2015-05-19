@@ -95,8 +95,8 @@ perf_event_open(struct perf_event_attr *hw_event, pid_t pid,
 
 int *
 start_measuring(int eventc, int *eventv) {
-    int *fd = malloc(sizeof(int) * eventc);
-    struct perf_event_attr *pe = malloc(sizeof(struct perf_event_attr) * eventc);
+    int *fd = (int *) malloc(sizeof(int) * eventc);
+    struct perf_event_attr *pe = (struct perf_event_attr *) malloc(sizeof(struct perf_event_attr) * eventc);
     
     int i,j;
     for(j=0; j<(eventc*2); j+=2) {
